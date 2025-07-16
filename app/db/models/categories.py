@@ -1,11 +1,11 @@
 from models import metadata_obj
-from sqlalchemy import Table, Column, String, Integer, ForeignKeyConstraint
+from sqlalchemy import Table, Column, String, Integer, ForeignKeyConstraint, Text
 
 categories = Table(
     "categories",
     metadata_obj,
-    Column("id", Integer, primary_key=True),
-    Column("name", String(50)),
+    Column("id", Integer, primary_key=True, autoincrement="auto"),
+    Column("name", String(50), unique=True, index=True, nullable=False),
     Column("parent_id", Integer, nullable = True),
     Column("description", String(200), nullable = True),
 
