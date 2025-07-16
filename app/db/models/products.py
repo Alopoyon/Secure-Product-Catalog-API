@@ -1,4 +1,4 @@
-from models import metadata_obj
+from app.db.models import metadata_obj
 from sqlalchemy import Table, Column, Integer, String, Boolean, Computed, ForeignKeyConstraint, Float
 
 

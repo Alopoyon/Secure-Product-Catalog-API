@@ -3,8 +3,8 @@ from sqlalchemy import MetaData
 metadata_obj = MetaData()
 
 
-# from app.models.products import products
-# from app.models.orders import orders
-# from app.models.categories import categories
+from .products import products
+from .orders import orders
+from .categories import categories
 
-# __all__ = ["products", "orders", "categories"]
+__all__ = ["products", "orders", "categories"]
