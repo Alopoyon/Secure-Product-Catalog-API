@@ -7,7 +7,8 @@ from app.schema.product import ProductIn, ProductOut
 
 def new_product(product: ProductIn, conn):
     insert_stmt = insert(products).values(
-        name = product.name, 
+        name = product.name,
+        product_name = product.product_name, 
         category = product.category,
         description = product.description,
         stock = product.stock,

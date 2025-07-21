@@ -15,21 +15,20 @@ def init_db():
         try:
             with open("app/db/MOCK_PRODUCTS.csv", "r", newline='', encoding='utf-8') as products_csv:
                 for line in products_csv:
-                    if not line:
-                        continue
-                    else:
-                        data.append(products_csv.readline().strip().split(","))
+                    data.append(products_csv.readline().strip().split(","))
             for row in data:
+                # print("data: ",data)
                 _obj = ProductIn(
-                    name=data[0],
-                    category=int(data[1] or 0),
-                    description=data[2],
-                    stock=int(data[3]),
-                    price=float(data[4])
+                    name=row[0],
+                    product_name=row[1],
+                    category=int(row[2] or 0),
+                    description=row[3],
+                    stock=int(row[4]),
+                    price=float(row[5])
                 )
-                t = open("t.txt","w")
-                t.write(repr(_obj))
-                t.write("\n")
+                # t = open(".t.txt","w")
+                # t.write(repr(_obj))
+                # t.write("\n")
                 if ProductIn.model_validate(_obj):
                     new_product(product=_obj, conn=conn)
         except:

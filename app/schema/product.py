@@ -2,6 +2,7 @@ from pydantic import BaseModel
 
 class ProductBase(BaseModel):
     name: str
+    product_name: str
     category: int | None = None
     description: str | None = None
     stock: int = 0

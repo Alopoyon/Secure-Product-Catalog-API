@@ -7,6 +7,7 @@ products = Table(
     metadata_obj,
     Column("id", Integer, primary_key=True, nullable=False),
     Column("name", String(150), nullable=False),
+    Column("product_name", String(150), nullable=False, unique=True),
     Column("category", Integer, nullable=True),
     Column("description", String(500), nullable=True),
     Column("stock", Integer, nullable=False),
